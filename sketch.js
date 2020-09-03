@@ -1,0 +1,41 @@
+
+const Engine = Matter.Engine;
+const World = Matter.World;
+const Bodies = Matter.Bodies;
+const Body = Matter.Body;
+
+function preload()
+{
+var paper = createSprite(200,250,20,30);
+Matter.paper.circle(200,250,5)
+}
+
+function setup() {
+	createCanvas(800, 700);
+
+
+	engine = Engine.create();
+	world = engine.world;
+
+	//Create the Bodies Here.
+
+
+	Engine.run(engine);
+	function keyPressed(){
+		Matter.Body.applyForce(paper.body,paper.body.position,{x:85,y:-85});
+	}
+	
+  
+}
+
+function draw() {
+  rectMode(CENTER);
+  background(0);
+  keyPressed();
+  
+  drawSprites();
+ 
+}
+
+
+
